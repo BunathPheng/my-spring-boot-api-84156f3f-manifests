@@ -1,0 +1,26 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-spring-boot-api-84156f3f
+  labels:
+    app: my-spring-boot-api-84156f3f
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: my-spring-boot-api-84156f3f
+  template:
+    metadata:
+      labels:
+        app: my-spring-boot-api-84156f3f
+    spec:
+      serviceAccountName: ingress-manager
+      containers:
+        - name: my-spring-boot-api-84156f3f
+          image: docker.io/phengbunath/my-spring-boot-api-84156f3f:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
